@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Debolina ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  margin-top: 25vh;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+button {
+  display: none;
+  margin: 10px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+}
+
+/* evasive */
+.evasive {
+  position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>
+    Debolina, will you give a Biryani party to "Phiroj" tomorrow<br>
+    because he is a great human 🔥?
+  </h2>
+
+  <button id="yes">Yes 😄</button>
+  <button id="no">No 😢</button>
+</div>
+
+<script>
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+
+// show YES first
+setTimeout(() => {
+  yesBtn.style.display = "inline-block";
+}, 500);
+
+// show NO after
+setTimeout(() => {
+  noBtn.style.display = "inline-block";
+}, 1200);
+
+// make NO evasive after appearing
+setTimeout(() => {
+  noBtn.classList.add("evasive");
+
+  function move() {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+  }
+
+  noBtn.addEventListener("mouseover", move);
+  noBtn.addEventListener("touchstart", move);
+
+}, 2000);
+
+// YES action
+yesBtn.onclick = () => {
+  document.body.innerHTML = `
+    <h1 style="margin-top:30vh;">
+      🎉 Party Confirmed for Phiroj! 🍛🔥
+    </h1>
+  `;
+};
+</script>
+
+</body>
+</html>
